@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>(runoob.com)</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <style>
+        @keyframes flower_ani {
+            0%{width: 2%;transform: rotate(0);opacity: 0;}
+            100%{width: 7%;transform: rotate(360deg);opacity: 1;}
+        }
+        @keyframes teng_in {
+            0%{top: -300px;opacity: 0.6;}
+            100%{top:0px;opacity: 1;}
+        }
+        @keyframes active_leaf {
+            0%{transform: rotate(0);opacity: 1;}
+            50%{transform: rotate(-60deg);opacity: 0.5;}
+            100%{transform: rotate(0deg);opacity: 1;}
+        }
+        @keyframes active_flower {
+            0%{transform: rotate(0);opacity: 1; }
+            50%{transform: rotate(180deg);opacity: 1;}
+            100%{transform: rotate(360deg);opacity: 1;}
+        }
+        @keyframes cake_in {
+            0%{top: -1500px;opacity: 0;scale: 20%;}
+            60%{top:0px;opacity: 1;scale: 100%;}
+            80%{top:0px;opacity: 1;scale: 110%;}
+            100%{top:0px;opacity: 1;scale: 100%;}
+        }
+        @keyframes caomei_in {
+            0%{margin-top: -1200px;opacity: 1;}
+            100%{margin-top:1px;opacity: 1;}
+        }
+
+        @keyframes color_blink {
+            0%{background-color: rgb(230, 225, 159);}
+            50%{background-color: rgb(194, 190, 133);}
+            100%{background-color: rgb(230, 225, 159);}
+        }
+        @keyframes stars_fall {
+            0%{margin-top:0px;margin-right:0px;opacity: 0;}
+            50%{opacity: 1;}
+            100%{margin-top: 2000px;margin-right:2000px;opacity: 0;}  
+        }
+        @keyframes text_in {
+            0%{opacity: 0;}
+            50%{opacity: 1;}  
+            100%{opacity: 0;}  
+        }
+        .backcolor
+        {
+            background-color: rgb(230, 225, 159);
+        }
+        .background
+        {
+            background-color: rgb(230, 225, 159);
+            top: 0px;
+            bottom: 0px;
+            height: 1000px;        
+        }
+        h1{
+            white-space:pre-wrap;
+        }
+        .mainwbox
+        {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            height:max-content;
+            margin-top:0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            align-content: center;
+            text-align: center;
+        }
+        .candle
+        {
+            display: inline-block;
+            position:relative;
+            top: 200px;
+            height: 200px;
+            width: 70px;
+            left:50%;
+            margin-left: -40px;
+            opacity: 0;
+        }
+        .cake1
+        {
+           
+            position:relative;
+            width: 800px;
+            left: 50%;
+            margin-left: -400px;
+            opacity: 0;
+        }
+        .cake2
+        {
+            position:relative;
+            width: 600px;
+            left: 50%;
+            margin-left: -300px;
+            opacity: 0;
+        }
+        .cake3
+        {
+            position:relative;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            opacity: 0;
+        }
+
+        .caomei1
+        {
+            position:relative;
+            width: 100px;
+            top: -300px;
+            left: 25%;
+            opacity: 0;
+            rotate: 200deg;
+        }
+        .caomei2
+        {
+            position:relative;
+            width: 100px;
+            top: -400px;
+            left: 45%;
+            opacity: 0;
+            rotate: 20deg;
+        }
+        .caomei3
+        {
+            position:relative;
+            width: 100px;
+            top: -500px;
+            left: 15%;
+            opacity: 0;
+            rotate: -30deg;
+        }
+        .caomei4
+        {
+            position:relative;
+            width: 100px;
+            top: -600px;
+            left: 65%;
+            opacity: 0;
+            rotate: 120deg;
+        }
+        .caomei5
+        {
+            position:relative;
+            width: 100px;
+            top: -700px;
+            left: 35%;
+            opacity: 0;
+            rotate: 80deg;
+        }
+        .caomei6
+        {
+            position:relative;
+            width: 100px;
+            top: -800px;
+            left: 75%;
+            opacity: 0;
+            rotate: 280deg;
+        }
+        .caomei7
+        {
+            position:relative;
+            width: 100px;
+            top: -900px;
+            left: 55%;
+            opacity: 0;
+            rotate: -50deg;
+        }
+        .imgtop
+        {
+            position: relative;
+            left: 0px;
+            right: 0px;
+            top: 80px;
+            width: 100%;
+            opacity: 1;
+        }
+        .imgbody
+        {
+            display: inline-block;
+            left: 0px;
+            top: 80px;
+            width: 100%;
+            opacity: 1;
+            margin-top: 300px ;
+            margin-bottom: 2000px;
+        }
+        .teng1
+        {
+            position: relative;
+            width: 100%;
+            opacity: 1;
+        }
+        .flower1
+        {
+
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 7%;
+            opacity: 0;
+        }
+        .flower2
+        {
+
+            position: absolute;
+            left: 33%;
+            top: 20px;
+            width: 7%;
+            opacity: 0;
+        }
+        .flower3
+        {
+
+            position: absolute;
+            left: 66%;
+            top: 20px;
+            width: 7%;
+            opacity: 0;
+        }
+        .flower4
+        {
+
+            position: absolute;
+            right: 20px;
+            top: 0px;
+            width: 7%;
+            opacity: 0;
+        }
+        .leaf1
+        {
+            position: absolute;
+            left: 10%;
+            top: 20px;
+            width: 7%;
+            rotate: 170deg;
+            opacity: 0;
+        }
+        .leaf2
+        {
+            position: absolute;
+
+
+            left: 50%;
+            top: 20px;
+            width: 7%;
+            rotate: 200deg;
+            opacity: 0;
+        }
+        .leaf3
+        {
+            position: absolute;
+            left: 80%;
+            top: 25px;
+            width: 7%;
+            rotate: 160deg;
+            opacity: 0;
+            
+        }
+        .caomeidiv
+        {
+            float: left;
+        }
+        .music
+        {
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            width: 10%;
+        }
+        .stars
+        {
+            top:0px;
+            right: 0px;
+            position: absolute;
+            z-index: 4;
+        }
+
+    </style>
+    <script> 
+        const  bt_obj= document.getElementsByName("bt1");
+        const music_obj = document.getElementsByName("music1");
+        const text_obj = document.getElementsByName("text1");  
+        var namestar=0;
+        var tick=0;
+        function playmusic(){
+            console.log(music_obj[0].pause);
+                           //播放音乐
+             if (music_obj[0].paused) {             //如果暂停
+                music_obj[0].play();
+                bt_obj[0].style.animationPlayState='running';
+                //animateCSS('bt1','active_flower',0,0,10000,'linear','4s');
+             }
+             else
+             {                        //如果播放（如果不是暂停）
+                music_obj[0].pause();            //暂停音乐
+                bt_obj[0].style.animationPlayState='paused';
+             }  
+             
+        }
+        window.onload=function(){ 
+
+            animateCSS('f1','flower_ani',1000);
+            animateCSS('l1','flower_ani',1200);
+            animateCSS('t1','teng_in',200);
+            //createStars(220);
+            //createStars(20);
+            setTimeout(time3s,3000);
+            setTimeout(createStars(515),1200);
+            animateCSS('text1','text_in',0,0,1000,'ease','3s');
+            
+        }
+        function time3s(){
+            
+            animateCSS('l1','active_leaf',0,-500,10000,'ease','2s');
+        
+            text_obj[0].innerHTML='这是你的第22岁生日';
+            //animateCSS('text1','text_in',0,0,1,'ease','3s');
+            animateCSS('f1','active_flower',0,-200,10000,'linear','4s');
+            animateCSS('bt1','active_flower',0,0,10000,'linear','4s');
+            setTimeout(time6s,3000);
+        }
+        function time6s(){
+            //playStars(10);
+            text_obj[0].innerHTML='生日当然要有蛋糕啦';
+            animateCSS('c1','cake_in',3000,-600);
+            animateCSS('grand','color_blink',0,-500,10000,'ease','4s');
+            animateCSS('ca1','caomei_in',3000,200,'ease','1s');
+            setTimeout(time12s,6000);
+            
+        }
+        function time12s(){
+
+            text_obj[0].innerHTML='蜡烛已点亮，开始许愿吧';
+            //playStars(220);
+
+            setTimeout(time16s,6000);
+        }
+        function time16s(){
+            text_obj[0].innerHTML='星星的数量是515个哦';
+            setTimeout(time17s,12000);
+        }
+        function time17s(){
+            
+            text_obj[0].innerHTML='歌曲名是Prefect day';
+            etTimeout(time17s,12000);
+        }  
+        function time17s(){
+            
+            text_obj[0].innerHTML='祝福你，早日获得自由';
+            etTimeout(time17s,12000);
+        } 
+            const animateCSS = (element, animation, delaytime=0,degtime=300,count=1,action='ease',anitime='1s') =>
+            // We create a Promise and return it
+            new Promise((resolve, reject) => {
+                //const animationName = `${prefix}${animation}`;
+                const node = document.getElementsByName(element);
+                var ani_obj;
+                for(var i=0;i<node.length;i++)
+                {
+                    // node[i].classList.remove("animation");
+                    // node[i].classList.add("animation");
+
+                    //setTimeout(()=> ,0);
+                    node[i].style.setProperty('animation-duration', anitime);
+                    node[i].style.setProperty('animation-name',animation);
+                    node[i].style.setProperty('animation-delay',i*degtime +delaytime+'ms');
+                    node[i].style.setProperty('display','block');
+                    node[i].style.setProperty('animation-fill-mode','forwards');
+                    node[i].style.setProperty('animation-timing-function',action);
+                    node[i].style.setProperty('animation-iteration-count',count);
+                    //console.log(node[i].style.animationDuration);
+                    node[i].style.setProperty('animation-play-state','running');
+
+
+                    //document.addEventListener('DOMContentLoaded', function() {
+                    //var box = document.querySelector('');
+                    node[i].classList.add('animation');
+                    node[i].addEventListener('animationend', function(e) {
+                    var self = this
+                    self.classList.remove('animation')
+                    setTimeout(function() {
+                    self.classList.add('animation')
+                    }, 1)
+                    })
+                    //})
+                }
+            });
+        
+        function createStars(Num=1)
+        {
+            var stars_sc_obj=document.getElementsByName('stars_screen');
+            var rand;
+            var rand2;
+
+            for(var i=0;i<Num;i++)
+            {
+                var stars=document.createElement('img');
+                stars_sc_obj[0].appendChild(stars);
+                rand=Math.random()*(8);
+                rand=parseInt(rand);
+                rand2=Math.random()*(18);
+                rand2=parseInt(rand2);
+                rand3=Math.random()*(240);
+                rand3=parseInt(rand3); 
+                //rand=parseInt((rand)/3);
+                stars.style.width=rand*25+100+'px';
+                stars.style.position='absolute';
+                //stars.style.left=i+'00px';
+                //stars.style.visibility='hidden';
+                stars.style.right='-400px';
+                stars.style.top=rand2-6+'00px';
+                stars.src="./pic/星星.png";
+                stars.name='s'+namestar;
+                namestar++;
+                stars.opacity=0;
+                console.log(stars.name);
+                //rand=parseInt(rand/3);
+               animateCSS(stars.name,'stars_fall',rand3*1000,0,1,'ease-in',6000-rand*500+'ms');               
+
+            }    
+    
+        }
+        function playStars(Num=1,start=0)
+        {
+            var rand3;
+            var rand;
+            var stars_obj;
+            for(var i=start;i<Num;i++)
+            {
+                stars_obj=document.getElementsByName('s'+i);
+                console.log(stars_obj[0].style);
+                rand3=Math.random()*(200);
+                rand3=parseInt(rand3); 
+                rand=parseInt(stars_obj[0].style.width);
+                rand=(rand-100)/25;
+                animateCSS('s'+i,'stars_fall',rand3*1000,0,1,'ease-in',6000-rand*500+'ms');               
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="background mainwbox" name="grand">
+        <div class="stars" name="stars_screen">
+            
+        </div>
+        <div  >
+
+            <div class="imgtop" >
+                <img src="./pic/藤.png" alt="图图呢"class="teng1"   name="t1">
+                <div>                                      
+                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower1" name="f1">
+                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower2" name="f1">
+                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower3" name="f1">
+                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower4" name="f1">
+                    <img src="./pic/树叶.png" alt=""class="leaf1" name="l1">
+                    <img src="./pic/树叶.png" alt=""class="leaf2" name="l1">
+                    <img src="./pic/树叶.png" alt=""class="leaf3" name="l1">
+
+                    <!-- <img src="./pic/树叶.png" alt=""class="leaf1" name="l2">
+                    <img src="./pic/树叶.png" alt=""class="leaf2" name="l2">
+                    <img src="./pic/树叶.png" alt=""class="leaf3" name="l2"> -->
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="imgbody">
+            <div>
+                <h1 name="text1">生日快乐!王颖</h1>
+            </div>
+            <div >
+                <div>
+                    <img src="./pic/蜡烛.png" alt="图图呢" class="candle" name="c1">
+                </div>
+                <div>
+                    <img src="./pic/蛋糕.png" alt="图图呢？" class="cake3" name="c1">
+                </div>
+                <div>
+                    <img src="./pic/蛋糕.png" alt="图图呢？" class="cake2" name="c1">
+                </div>
+                <div>
+                    <img src="./pic/蛋糕.png" alt="图图呢？" class="cake1" name="c1">
+
+                </div>
+                <div >
+                    <img src="./pic/草莓.png" alt="" class="caomei1" name="ca1">
+                    <img src="./pic/草莓.png" alt="" class="caomei2" name="ca1"> 
+                    <img src="./pic/草莓.png" alt="" class="caomei3" name="ca1">
+                    <img src="./pic/草莓.png" alt="" class="caomei4" name="ca1">
+                    <img src="./pic/草莓.png" alt="" class="caomei5" name="ca1"> 
+                    <img src="./pic/草莓.png" alt="" class="caomei6" name="ca1">
+                    <img src="./pic/草莓.png" alt="" class="caomei7" name="ca1">
+                </div> 
+                <div>
+                    <img src="./pic/转动－音符.png" alt="" class="music" onmousedown="playmusic()" name="bt1">
+                    <audio src="./music/supercell - Perfect Day.ogg" name="music1" autoplay="autoplay"></audio>
+                </div>
+                
+                             
+            </div>
+
+            
+        </div>
+
+    </div>
+    <script>
+
+    </script>
+        
+</body>
