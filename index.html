@@ -82,6 +82,7 @@
             align-content: center;
             text-align: center;
             max-width: 1000px;
+            background-color: rgb(230, 225, 159);
         }
         .candle
         {
@@ -201,10 +202,13 @@
             opacity: 1;
             margin-top: 300px ;
             margin-bottom: 2000px;
+            font-size: 32px;
+            color:rgb(216, 127, 201);
         }
         .teng1
         {
             position: relative;
+            margin-top:100px;
             width: 100%;
             right: 0px;
             opacity: 1;
@@ -282,9 +286,29 @@
         .music
         {
             position: absolute;
-            top: 200px;
-            left: 100px;
+            top: 30px;
+            left: 80px;
             width: 10%;
+            z-index: 10;
+        }
+        .music2
+        {
+            position: absolute;
+            top: 30px;
+            left: 160px;
+            width: 10%;
+            z-index: 9;
+            scale: 1.2;
+        }
+        .music3
+        {
+            position: absolute;
+            top: 30px;
+            left: 0px;
+            width: 10%;
+            rotate: 180deg;
+            z-index: 9;
+            scale: 1.2;
         }
         .stars
         {
@@ -298,6 +322,20 @@
         const  bt_obj= document.getElementsByName("bt1");
         const music_obj = document.getElementsByName("music1");
         const text_obj = document.getElementsByName("text1");  
+        var musicIndex=1, musicList=['./music/supercell - 銀色飛行船 (银色飞行船).ogg'
+        ,'./music/supercell - 私へ (致自己).ogg',
+        './music/supercell - 星が瞬くこんな夜に (繁星闪耀的夜晚).ogg',
+        './music/supercell - 告白.ogg',
+        './music/supercell - 君の知らない物語 (你不知道的故事).ogg',
+        './music/supercell - ヒーロー (英雄).ogg',
+        './music/supercell - カレ (他).ogg',
+        './music/supercell - うたかた花火 (泡沫花火).ogg',
+        './music/supercell - My Dearest (TV Edit).ogg',
+        ];
+        // music_obj[0].addEventListener('ended', function(){
+
+        //     })
+
         var namestar=0;
         var tick=0;
         function playmusic(){
@@ -309,12 +347,24 @@
                 //animateCSS('bt1','active_flower',0,0,10000,'linear','4s');
              }
              else
-             {                        //如果播放（如果不是暂停）
+             {  
+                //如果播放（如果不是暂停）
                 music_obj[0].pause();            //暂停音乐
                 bt_obj[0].style.animationPlayState='paused';
              }  
              
         }
+        function playmusic2()
+        {
+                musicIndex=musicIndex<musicList.length-1?musicIndex+1:0
+                music_obj[0].src=musicList[musicIndex];       
+        }
+        function playmusic3()
+        {
+                musicIndex=musicIndex>0? musicIndex-1:musicList.length-1
+                music_obj[0].src=musicList[musicIndex];       
+        }
+
         window.onload=function(){ 
 
             animateCSS('f1','flower_ani',1000);
@@ -323,8 +373,15 @@
             //createStars(220);
             //createStars(20);
             setTimeout(time3s,3000);
-            createStars(515);
+
             animateCSS('text1','text_in',0,0,1000,'ease','3s');
+            music_obj[0].addEventListener('ended', function(){
+
+            musicIndex=musicIndex<musicList.length-1?musicIndex+1:0
+
+            this.src=musicList[musicIndex]
+
+            })
             
         }
         function time3s(){
@@ -349,7 +406,7 @@
 
             text_obj[0].innerHTML='蜡烛已点亮，开始许愿吧';
             //playStars(220);
-
+            createStars(515);
             setTimeout(time16s,6000);
         }
         function time16s(){
@@ -358,13 +415,13 @@
         }
         function time17s(){
             
-            text_obj[0].innerHTML='歌曲名是Prefect day';
-            etTimeout(time17s,12000);
+            text_obj[0].innerHTML='';
+            etTimeout(time18s,42000);
         }  
-        function time17s(){
-            
+        function time18s(){
+           // text_obj[0].innerHTML='歌曲名是Prefect day';
             //text_obj[0].innerHTML='祝福你，早日获得自由';
-            etTimeout(time17s,12000);
+           // etTimeout(time17s,12000);
         } 
             const animateCSS = (element, animation, delaytime=0,degtime=300,count=1,action='ease',anitime='1s') =>
             // We create a Promise and return it
@@ -466,9 +523,10 @@
 <body >
 
     <div class="mainwbox" name="grand"> 
-        <img src="./pic/藤.png" alt="图图呢"  class="teng1" name="t1">
-        <div>
-               
+        <div class="teng1" >
+            <img src="./pic/藤.png" alt="图图呢"class="teng1" name="t1">
+            <div>
+                
                 <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower1" name="f1">
                 <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower2" name="f1">
                 <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower3" name="f1">
@@ -476,7 +534,9 @@
                 <img src="./pic/树叶.png" alt=""class="leaf1" name="l1">
                 <img src="./pic/树叶.png" alt=""class="leaf2" name="l1">
                 <img src="./pic/树叶.png" alt=""class="leaf3" name="l1">
+            </div>           
         </div>
+ 
 
         <div class="imgbody">
             <div>
@@ -507,7 +567,9 @@
                 </div> 
                 <div>
                     <img src="./pic/转动－音符.png" alt="" class="music" onmousedown="playmusic()" name="bt1">
-                    <audio src="./music/supercell - Perfect Day.ogg" name="music1" autoplay="autoplay"></audio>
+                    <img src="./pic/47最后一页、末页、下一首.png" alt="" class="music2" onmousedown="playmusic2()" name="bt2">
+                    <img src="./pic/47最后一页、末页、下一首.png" alt="" class="music3" onmousedown="playmusic3()" name="bt3">
+                    <audio src="./music/supercell - 銀色飛行船 (银色飞行船).ogg" name="music1" autoplay="autoplay"></audio>
                 </div>
                 
                              
