@@ -45,6 +45,7 @@
         }
         @keyframes stars_fall {
             0%{margin-top:0px;margin-right:0px;opacity: 0;}
+
             50%{opacity: 1;}
             100%{margin-top: 2000px;margin-right:2000px;opacity: 0;}  
         }
@@ -62,6 +63,7 @@
             background-color: rgb(230, 225, 159);
             top: 0px;
             bottom: 0px;
+            right: 0px;
             height: 1000px;        
         }
         h1{
@@ -69,17 +71,17 @@
         }
         .mainwbox
         {
-            position: relative;
+            position: absolute;
             top: 0px;
             left: 0px;
             right: 0px;
-            height:max-content;
             margin-top:0px;
             margin-bottom: 0px;
             margin-left: 0px;
             margin-right: 0px;
             align-content: center;
             text-align: center;
+            max-width: 1000px;
         }
         .candle
         {
@@ -183,11 +185,11 @@
         }
         .imgtop
         {
-            position: relative;
+            position: absolute;
             left: 0px;
             right: 0px;
             top: 80px;
-            width: 100%;
+
             opacity: 1;
         }
         .imgbody
@@ -204,6 +206,7 @@
         {
             position: relative;
             width: 100%;
+            right: 0px;
             opacity: 1;
         }
         .flower1
@@ -285,10 +288,9 @@
         }
         .stars
         {
-            top:0px;
-            right: 0px;
             position: absolute;
             z-index: 4;
+            opacity: 0;
         }
 
     </style>
@@ -321,14 +323,13 @@
             //createStars(220);
             //createStars(20);
             setTimeout(time3s,3000);
-            setTimeout(createStars(515),1200);
+            createStars(515);
             animateCSS('text1','text_in',0,0,1000,'ease','3s');
             
         }
         function time3s(){
             
             animateCSS('l1','active_leaf',0,-500,10000,'ease','2s');
-        
             text_obj[0].innerHTML='这是你的第22岁生日';
             //animateCSS('text1','text_in',0,0,1,'ease','3s');
             animateCSS('f1','active_flower',0,-200,10000,'linear','4s');
@@ -362,7 +363,7 @@
         }  
         function time17s(){
             
-            text_obj[0].innerHTML='祝福你，早日获得自由';
+            //text_obj[0].innerHTML='祝福你，早日获得自由';
             etTimeout(time17s,12000);
         } 
             const animateCSS = (element, animation, delaytime=0,degtime=300,count=1,action='ease',anitime='1s') =>
@@ -404,7 +405,7 @@
         
         function createStars(Num=1)
         {
-            var stars_sc_obj=document.getElementsByName('stars_screen');
+            var stars_sc_obj=document.getElementsByName('grand');
             var rand;
             var rand2;
 
@@ -422,11 +423,15 @@
                 stars.style.width=rand*25+100+'px';
                 stars.style.position='absolute';
                 //stars.style.left=i+'00px';
-                //stars.style.visibility='hidden';
-                stars.style.right='-400px';
+                stars.style.overflow='hidden';
+                //  stars.style.left='1200px';
+                  stars.style.right='0px';
+                  stars.style.padding='';
+                // stars.style.marginRight='-200px';
                 stars.style.top=rand2-6+'00px';
                 stars.src="./pic/星星.png";
                 stars.name='s'+namestar;
+                stars.classList.add('stars');
                 namestar++;
                 stars.opacity=0;
                 console.log(stars.name);
@@ -458,33 +463,19 @@
 
 </head>
 
-<body>
+<body >
 
-    <div class="background mainwbox" name="grand">
-        <div class="stars" name="stars_screen">
-            
-        </div>
-        <div  >
-
-            <div class="imgtop" >
-                <img src="./pic/藤.png" alt="图图呢"class="teng1"   name="t1">
-                <div>                                      
-                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower1" name="f1">
-                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower2" name="f1">
-                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower3" name="f1">
-                    <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower4" name="f1">
-                    <img src="./pic/树叶.png" alt=""class="leaf1" name="l1">
-                    <img src="./pic/树叶.png" alt=""class="leaf2" name="l1">
-                    <img src="./pic/树叶.png" alt=""class="leaf3" name="l1">
-
-                    <!-- <img src="./pic/树叶.png" alt=""class="leaf1" name="l2">
-                    <img src="./pic/树叶.png" alt=""class="leaf2" name="l2">
-                    <img src="./pic/树叶.png" alt=""class="leaf3" name="l2"> -->
-                </div>
-
-
-            </div>
-
+    <div class="mainwbox" name="grand"> 
+        <img src="./pic/藤.png" alt="图图呢"  class="teng1" name="t1">
+        <div>
+               
+                <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower1" name="f1">
+                <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower2" name="f1">
+                <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower3" name="f1">
+                <img src="./pic/花 红花 植物 花朵.png" alt=""class="flower4" name="f1">
+                <img src="./pic/树叶.png" alt=""class="leaf1" name="l1">
+                <img src="./pic/树叶.png" alt=""class="leaf2" name="l1">
+                <img src="./pic/树叶.png" alt=""class="leaf3" name="l1">
         </div>
 
         <div class="imgbody">
@@ -525,7 +516,8 @@
             
         </div>
 
-    </div>
+    </div>  
+
     <script>
 
     </script>
