@@ -81,7 +81,6 @@
             margin-right: 0px;
             align-content: center;
             text-align: center;
-            max-width: 1000px;
             background-color: rgb(230, 225, 159);
         }
         .candle
@@ -373,7 +372,7 @@
             //createStars(220);
             //createStars(20);
             setTimeout(time3s,3000);
-
+            animateCSS('grand','color_blink',0,-500,10000,'ease','4s');
             animateCSS('text1','text_in',0,0,1000,'ease','3s');
             music_obj[0].addEventListener('ended', function(){
 
@@ -382,13 +381,14 @@
             this.src=musicList[musicIndex]
 
             })
+            animateCSS('c1','cake_in',9000,-600);
             
+            animateCSS('ca1','caomei_in',9000,200,'ease','1s');
         }
         function time3s(){
             
             animateCSS('l1','active_leaf',0,-500,10000,'ease','2s');
             text_obj[0].innerHTML='这是你的第22岁生日';
-            //animateCSS('text1','text_in',0,0,1,'ease','3s');
             animateCSS('f1','active_flower',0,-200,10000,'linear','4s');
             animateCSS('bt1','active_flower',0,0,10000,'linear','4s');
             setTimeout(time6s,3000);
@@ -396,9 +396,7 @@
         function time6s(){
             //playStars(10);
             text_obj[0].innerHTML='生日当然要有蛋糕啦';
-            animateCSS('c1','cake_in',3000,-600);
-            animateCSS('grand','color_blink',0,-500,10000,'ease','4s');
-            animateCSS('ca1','caomei_in',3000,200,'ease','1s');
+
             setTimeout(time12s,6000);
             
         }
